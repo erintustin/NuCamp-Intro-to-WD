@@ -1,0 +1,68 @@
+/* style */
+
+body {
+    width: 50%;
+    margin: auto;
+    font-family: "Georgia";
+    background-image: url("./images/polkadotbg.png");
+    background-opacity: .5;
+}
+
+a {
+    color: pink;
+    hover: gray;
+    visited: black;
+}
+
+section {
+    background-color: white;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    align: center;
+}
+
+h1 {
+    background-color: pink;
+    border: dotted black 1px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+h2 { 
+    background-color: pink;
+    border: dotted black 1px;
+    text-align: center;
+    margin-top: 0px;
+    padding: 0px;
+
+}
+
+li, p {
+    margin: 10px;
+}
+
+#nav {
+    background-color: white;
+    text-align:center;
+    margin-bottom: 0px;
+}
+
+
+
+#photos {
+    display: flex;
+    padding: 10px;
+}
+
+#photobox {
+    margin: auto;
+}
+
+
+img {
+    border: dotted black 1px;
+    margin: 2px;
+    height: 150px;
+    padding: 2px;
+    align: center;
+}
