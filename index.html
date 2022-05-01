@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <head>
+        <title>Fun with Flexbox</title>
+        
+        <!--Start Internal Style Sheet-->
+        <style>
+    html {
+        box-sizing: border-box;
+    }
+
+    body {
+        background: url("./images/pinkspeck.png")
+    }
+    
+      h1 {
+          text-align: center;
+          color: white;
+          font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: black;
+          background: pink;
+          padding: 5px;
+          margin-bottom: 0px;
+          
+      }
+
+      h4 {
+          font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          Margin-bottom: 1px;
+      }
+
+      img { 
+        height: 200px;
+        border: 1px solid black;
+      }
+
+
+      p {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin: 0px;
+        padding: 5px;
+        
+      }
+
+      .heading {
+          width: 80%;
+          margin-bottom: 0px;
+          margin: auto;
+          padding: 0px;
+      }
+    
+      .description {
+          text-align: center;
+          width: 80%;
+          margin: auto;
+          background: pink;
+      }
+
+      .assignment-container {
+          display: flex;
+          flex-wrap: wrap;
+          width: 80%;
+          margin: auto;
+          background: white;
+          border: 1px black solid;
+          margin-top: 0px;
+      }
+
+      .assignments {
+          flex: 1 1 0;
+          padding: 25px;
+          margin: auto;
+          
+      }
+
+        </style>
+        <!--End Internal Style Sheet-->
+
+    </head>
+    <body>
+    <div class="heading">
+<h1>NuCamp Intro to Web Development Workshop Assignments</h1>
+    </div>
+<div class="description">
+    <p>Here are the weekly workshop assignments I have completed while enrolled in 
+    NuCamp's Intro to Web Development Course</p>
+</div>  
+<div class="assignment-container">
+    <div class="assignments" id="week1">
+    <a href="https://erintustin.github.io/NuCamp-Intro-to-WD/profilejusthtml.html">
+        <img src="./images/screenshots/profile.png"></a>
+        <h4>Week 1 - Profile Page</h4>
+    <p>In <a href="https://erintustin.github.io/NuCamp-Intro-to-WD/profilejusthtml.html">this assignment</a>
+        we were asked to create a basic html page utilizing specific elements, such as heading, list, image, audio, and links. 
+    </p>
+    </div>
+    <div class="assignments" id="week1-2">
+        <a href="https://erintustin.github.io/NuCamp-Intro-to-WD/profile.html">
+            <img src="./images/screenshots/profile-with-css.png"></a>
+            <h4>Week 1.5 - Profile Page w/ CSS</h4>
+        <p>In <a href="https://erintustin.github.io/NuCamp-Intro-to-WD/profile.html">this optional assignment</a>
+            we were asked to enhance our basic html profile page with CSS.  
+        </p>
+        </div>
+     <div class="assignments" id="week2">
+        <a href="https://erintustin.github.io/NuCamp-Intro-to-WD/datingwebsite.html">
+            <img src="./images/screenshots/datingsite.png"></a>
+            <h4>Week 2 - Dating Form</h4>
+        <p>In <a href="https://erintustin.github.io/NuCamp-Intro-to-WD/datingwebsite.html">this assignment</a>
+            we were asked to create a form for a dating website according to specific parameters and design preferences.  
+        </p>
+        </div>
+</div>
+
+
+
+
+    </body>
+</html>

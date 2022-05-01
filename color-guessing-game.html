@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Color Guessing Game</title>
+        <style>
+            html {
+                height: 100%;
+            }
+            body {
+                background: linear-gradient(to bottom, cyan, blue, gold, gray, green, magenta, orange, red, white, yellow);
+            }
+            .game {
+                width: 50%;
+                padding: 10px;
+                margin: auto;
+                margin-top: 10%;
+                text-align: center;
+                background: lightgray;
+                border: solid black 1px;
+            }
+
+            h1 {
+                color: white;
+                font-size: 40px;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                 -webkit-text-stroke-width: 2px;
+                 -webkit-text-stroke-color: black;
+            }
+
+            button {
+                background: white;
+                border-radius: 10px;
+                border: solid black 1px;
+                padding: 12px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="game">
+            <h1>COLOR GUESSING GAME</h1>
+            <button onclick='runGame()'>Start Game</button>
+        </div>
+      
+        
+        <script>
+            const COLORS_ARRAY = ['cyan', 'blue' , 'gold', 'gray', 'green', 'magenta', 'orange', 'red', 'white', 'yellow'];
+            
+            function runGame() {
+
+            let guess = '';
+            let correct = false;
+            let numTries = 0;
+            const targetIndex = Math.floor(Math.random() * 9); 
+            const target = COLORS_ARRAY.at(targetIndex);
+
+            console.log(target);
+
+            do {
+            COLORS_ARRAY.sort();
+            guess = prompt('I am thinking of one of these colors:\n\n' + COLORS_ARRAY.join(', ') +
+'\n\nWhat color am I thinking of?\n\n\You have made ' + numTries + ' guesses.\n')
+            if (guess === null) {
+                alert('Maybe some other time!');
+                return;
+            }
+            correct = checkGuess(guess, target);
+            numTries += 1;
+          
+            } while(!correct);
+            document.body.style.background = guess;
+            alert('You got it! The color was ' + target +'. It took you ' + numTries + ' guesses.');
+            return correct;
+            
+            }
+
+            function checkGuess(guess, target) {
+            let correct = false;
+            
+            if (!COLORS_ARRAY.includes(guess.toLowerCase())) {
+        alert('You have not entered a color from the list.\n\nPlease choose a color from the list.');
+         } else if (guess.toLowerCase() > target) {
+        alert('Your choice is alphabetically higher than the color.');
+         } else if (guess.toLowerCase() < target) {
+        alert('Your choice is alphabeticaly lower than the color.');
+         } else {
+        correct = true;
+         } 
+        return correct;
+            }
+        </script>
+    </body>
+</html>
