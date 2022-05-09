@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title> Matching Game</title>
+        <title> Black Sheep Game</title>
         <style>
             img {
                 position: absolute;
@@ -49,7 +49,7 @@
     <body>
         <div class="game-header">
             <h1>Black Sheep</h1>
-            <p>Find the extra sheep hiding in the barnyard on the left!</p>
+            <p>One of these sheep does not belong! Find the extra sheep hiding in the barnyard on the left!</p>
        </div>
         <div id="leftSide"><img src="./images/barn-bg.png"></div>
         <div id="rightSide"></div>
@@ -91,7 +91,7 @@
                 black.style.left= face.style.left;
                 theLeftSide.replaceChild(black, face);
                 baa = document.createElement('audio');
-                baa.src = 'audio/baa.mp3';
+                baa.src = 'mp3s/baa.mp3';
                 baa.play();
                 theLeftSide.lastChild.addEventListener('mouseup', nextLevel);
         
