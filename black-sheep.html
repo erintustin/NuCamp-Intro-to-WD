@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Matching Game</title>
+        <style>
+            img {
+                position: absolute;
+            }
+            .game-header {
+                width: 1000px;
+                text-align: center;
+            }
+            h1 {
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                -webkit-text-stroke-width: 1px;
+                -webkit-text-stroke-color: black;
+            }
+
+            p {
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+
+            #rightSide,
+            #leftSide {
+                background-image: url('/images/barn-bg.png');
+                position: absolute;
+                width: 500px;
+                height: 500px;
+                
+                
+            }
+
+            button {
+                position: absolute;
+                width: 500px;
+                top: 800px;
+
+            }
+
+            #rightSide { 
+                left: 500px;
+                border-left: 5px solid;
+                
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="game-header">
+            <h1>Black Sheep</h1>
+            <p>Find the extra sheep hiding in the barnyard on the left!</p>
+       </div>
+        <div id="leftSide"><img src="./images/barn-bg.png"></div>
+        <div id="rightSide"></div>
+      
+
+        <script>
+            window.addEventListener('load', generateFaces);
+            let numberOfFaces = 5;
+            const theLeftSide = document.getElementById('leftSide');
+            const theRightSide = document.getElementById('rightSide');
+            let clicks = 0;
+
+
+            function generateFaces() {
+                for (i = 0; i < numberOfFaces; i++) {
+                    
+                    face = document.createElement('img');
+                    face.src = 'images/sheep.png';
+                    let randomTop = Math.floor(Math.random() * 401);
+                    let randomLeft = Math.floor(Math.random() * 401);
+                    face.style.top = randomTop + 'px';
+                    face.style.left = randomLeft + 'px';
+                    theLeftSide.appendChild(face);
+                }
+
+                const leftSideImages = theLeftSide.cloneNode(true);
+                leftSideImages.removeChild(leftSideImages.lastChild);
+                theRightSide.appendChild(leftSideImages);
+
+                theLeftSide.lastChild.addEventListener('mousedown', blackSheep);
+                
+                document.body.addEventListener('click', gameOver);
+                }
+            
+            function blackSheep() {
+                black = document.createElement('img');
+                black.src = 'images/black-sheep.png';
+                black.style.top = face.style.top;
+                black.style.left= face.style.left;
+                theLeftSide.replaceChild(black, face);
+                baa = document.createElement('audio');
+                baa.src = 'audio/baa.mp3';
+                baa.play();
+                theLeftSide.lastChild.addEventListener('mouseup', nextLevel);
+        
+            }
+            
+            function nextLevel() {
+                event.stopPropagation();
+                numberOfFaces += 5;
+                clicks += 1;
+
+                
+                while (theLeftSide.childNodes.length > 1) {
+                    theLeftSide.removeChild(theLeftSide.lastChild);
+                    }
+                    while (theRightSide.firstChild) {
+                    theRightSide.removeChild(theRightSide.lastChild);
+                    
+                    }
+                generateFaces();
+            }
+
+            function gameOver() {
+                alert('Game Over! You made it to level '+ clicks +'! Play again?');
+                document.body.removeEventListener('click', nextLevel);
+                theLeftSide.lastChild.removeEventListener('click', gameOver);
+
+                const playagain = document.createElement('button');
+                playagain.innerHTML = 'Play Again';
+                playagain.onclick = window.location.reload();
+                insertBefore(playagain, document.div);
+
+            }
+
+        </script>
+    </body>
+</html>
