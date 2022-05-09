@@ -44,6 +44,28 @@
                 
             }
 
+            #score {
+                position: absolute;
+                left: 1050px;
+                top: 250px;
+                width: 150px;
+                height: 200px;
+                padding: 50px;
+                padding-top: 2px;
+                border: 5px solid black;
+            }
+
+            #count {
+                bottom: 10px;
+                left: 75px;
+            }
+
+            #score-number {
+                font-size: 100px;
+                text-align: center;
+                margin-top: 10px;
+            }
+
         </style>
     </head>
     <body>
@@ -53,6 +75,11 @@
        </div>
         <div id="leftSide"><img src="./images/barn-bg.png"></div>
         <div id="rightSide"></div>
+        <div id="score">
+            <p id="score-number">0</p>
+            <img id="count" src="./images/black-sheep.png">
+        </div>
+        
       
 
         <script>
@@ -61,6 +88,7 @@
             const theLeftSide = document.getElementById('leftSide');
             const theRightSide = document.getElementById('rightSide');
             let clicks = 0;
+
 
 
             function generateFaces() {
@@ -99,9 +127,9 @@
             
             function nextLevel() {
                 event.stopPropagation();
-                numberOfFaces += 5;
+                numberOfFaces += 1;
                 clicks += 1;
-
+                document.getElementById('score-number').innerHTML = clicks;
                 
                 while (theLeftSide.childNodes.length > 1) {
                     theLeftSide.removeChild(theLeftSide.lastChild);
@@ -114,16 +142,20 @@
             }
 
             function gameOver() {
-                alert('Game Over! You made it to level '+ clicks +'! Play again?');
+                gameover = document.createElement('img');
+                gameover.src = 'images/game-over.png';
                 document.body.removeEventListener('click', nextLevel);
                 theLeftSide.lastChild.removeEventListener('click', gameOver);
-
-                const playagain = document.createElement('button');
-                playagain.innerHTML = 'Play Again';
-                playagain.onclick = window.location.reload();
-                insertBefore(playagain, document.div);
+                document.body.appendChild(gameover);
+                document.body.addEventListener('click', playAgain);
 
             }
+
+            function playAgain(){
+        window.location.reload();
+
+     
+            } 
 
         </script>
     </body>
